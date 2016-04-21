@@ -140,7 +140,7 @@ var handleError = function(e, response) {
     this.status = e.code;
   }
 
-  return this.app.emit('error', e, this);
+  return this.status == 400 && this.app.emit('error', e, this);
 };
 
 /**
