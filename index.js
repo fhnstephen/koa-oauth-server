@@ -137,6 +137,13 @@ var handleError = function(e, response) {
     this.status = e.code;
   } else {
     this.body = { error: e.name, error_description: e.message };
+    if (e.expose) {
+      Object.keys(e).forEach(function (key) {
+        if (key === 'name' || key === 'code' || key === 'message' ||
+            key === 'status' || key === 'expose') return;
+        this.body[key] = e[key];
+      }.bind(this));
+    }
     this.status = e.code;
   }
 
