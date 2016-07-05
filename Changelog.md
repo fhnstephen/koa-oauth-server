@@ -1,5 +1,8 @@
 ## Changelog
 
+### 2.0.1
+ - Add options for all middlewares
+
 ### 1.0.0
  - Replace thunks by promises
  - Update readme to mention request body parsing
